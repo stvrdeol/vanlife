@@ -2,7 +2,7 @@ import img from "../assets/image55.png";
 
 function About() {
   return (
-    <section className="bg-[#FFF7ED] ">
+    <section>
       <img
         src={img}
         alt="vanlife"
