@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logog.png";
 function Nav() {
   return (
-    <header className="flex bg-[#FFF7ED] p-8 items-center justify-between  ">
+    <header className="flex bg-[#FFF7ED] p-8 items-center gap-3 justify-between  ">
       <Link to="/">
         <img src={logo} alt="logo" className="w-40" />
       </Link>
       <nav>
         <ul className="flex gap-6">
+          <li>
+            <Link to="/host">Host</Link>
+          </li>
           <li>
             <Link to="/about">About</Link>
           </li>
