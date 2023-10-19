@@ -1,4 +1,4 @@
-function Loader() {
+function loader() {
   return (
     <section className="flex-1 grid place-items-center">
       <div role="status">
@@ -23,4 +23,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default loader;
