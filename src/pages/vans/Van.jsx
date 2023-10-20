@@ -22,7 +22,7 @@ function Van() {
     fetchData();
   }, [param]);
   return van ? (
-    <section className=" md:flex px-[5vw] py-8 md:py-0 items-center gap-6 max-w-4xl mx-auto text-[#161616]">
+    <section className=" md:flex px-[5vw] py-8 items-center gap-6 max-w-4xl mx-auto text-[#161616]">
       <img
         src={van.imageUrl}
         alt="van"
