@@ -25,7 +25,7 @@ function Vans() {
       <article key={van.id}>
         <Link to={`/vans/${van.id}`}>
           <img src={van.imageUrl} alt="van" className="rounded-[5px]" />
-          <section className="text-xl font-semibold flex justify-between mt-2">
+          <section className="sm:text-xl font-semibold gap-3 flex justify-between mt-2">
             <h2>{van.name}</h2>
             <section>
               <p>${van.price}</p>
@@ -43,9 +43,9 @@ function Vans() {
     );
   });
   return vans.length ? (
-    <section className="mx-auto py-8 px-10 max-w-3xl">
+    <section className="mx-auto py-8 px-[5vw] max-w-md sm:max-w-3xl">
       <h1 className="text-[32px] font-bold">Explore our van options</h1>
-      <section className="grid grid-cols-2 mt-10 gap-8 sm:grid-cols-3">
+      <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3">
         {vansElement}
       </section>
     </section>

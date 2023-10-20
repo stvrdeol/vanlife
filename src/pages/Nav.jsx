@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logog.png";
 function Nav() {
   return (
-    <header className="flex bg-[#FFF7ED] p-8 items-center gap-3 justify-between  ">
+    <header className="flex bg-[#FFF7ED] py-8 px-[5vw] items-center gap-3 justify-between  ">
       <Link to="/">
         <img src={logo} alt="logo" className="w-40" />
       </Link>
