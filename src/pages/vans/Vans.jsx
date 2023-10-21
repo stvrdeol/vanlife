@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import FilterButtons from "../../components/FilterButtons";
 import Loader from "../../components/Loader";
 function Vans() {
   const [vans, setVans] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type");
   function setTypeClass(type) {
     if (type == "simple") {
       return "bg-[#E17654]";
@@ -20,7 +23,10 @@ function Vans() {
     }
     fetchData();
   }, []);
-  const vansElement = vans.map((van) => {
+  const filteredVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
+  const vansElement = filteredVans.map((van) => {
     return (
       <article key={van.id}>
         <Link to={`/vans/${van.id}`}>
@@ -45,6 +51,24 @@ function Vans() {
   return vans.length ? (
     <section className="mx-auto py-8 px-[5vw] max-w-md sm:max-w-3xl">
       <h1 className="text-[32px] font-bold">Explore our van options</h1>
+      <section className="flex gap-2 mt-2">
+        <FilterButtons
+          typeFilter={"simple"}
+          setSearchParams={setSearchParams}
+          currentFilter={typeFilter}
+        />
+        <FilterButtons
+          typeFilter={"luxury"}
+          setSearchParams={setSearchParams}
+          currentFilter={typeFilter}
+        />
+        <FilterButtons
+          typeFilter={"rugged"}
+          setSearchParams={setSearchParams}
+          currentFilter={typeFilter}
+        />
+        <FilterButtons setSearchParams={setSearchParams} />
+      </section>
       <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3">
         {vansElement}
       </section>
