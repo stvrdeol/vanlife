@@ -1,42 +1,25 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Loader from "../../components/Loader";
+import { useOutletContext } from "react-router-dom";
 function Details() {
-  const [details, setDetails] = useState(null);
-  const { hostVanId } = useParams();
-  useEffect(() => {
-    async function fetchDetails() {
-      const response = await fetch(`/api/host/vans/${hostVanId}`);
-      const data = await response.json();
-      setDetails(data.vans);
-      console.log(data.vans);
-    }
-    fetchDetails();
-  }, [hostVanId]);
-  return details ? (
+  const van = useOutletContext();
+  return (
     <section>
       <p className="text-sm text-gray-600 font-medium mb-4">
         <span className="text-[#161616] font-bold">Name: </span>
-        {details.name}
+        {van.name}
       </p>
       <p className="text-sm text-gray-600 font-medium mb-4">
         <span className="text-[#161616] font-bold">Category: </span>
-        {details.type}
+        {van.type}
       </p>
       <p className="text-sm text-gray-600 font-medium mb-4">
         <span className="text-[#161616] font-bold">Description: </span>
-        {details.description}
+        {van.description}
       </p>
       <p className="text-sm text-gray-600 font-medium mb-4">
         <span className="text-[#161616] font-bold">Visibility: </span>
         Public
       </p>
     </section>
-  ) : (
-    <section className="flex items-center h-full justify-center">
-      <Loader />
-    </section>
   );
 }
-
 export default Details;

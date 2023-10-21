@@ -6,7 +6,7 @@ function Layout() {
   return (
     <>
       <Nav />
-      <main className="flex-1 flex bg-[#FFF7ED]">
+      <main className="flex-1 flex flex-col bg-[#FFF7ED]">
         <Outlet />
       </main>
       <Footer />

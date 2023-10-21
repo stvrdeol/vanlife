@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 function Host() {
   return (
-    <section className="py-5 px-[3vw] md:px-[5vw] flex-1">
+    <section className="py-5 flex flex-col px-[3vw] md:px-[5vw] flex-1">
       <nav>
         <ul className="flex  gap-3">
           <li>
@@ -11,7 +11,7 @@ function Host() {
               className={({ isActive }) =>
                 isActive ? "text-[#FF8C38] font-bold" : null
               }
-              to={"/host"}>
+              to={"."}>
               Dashboard
             </NavLink>
           </li>
@@ -20,7 +20,7 @@ function Host() {
               className={({ isActive }) =>
                 isActive ? "text-[#FF8C38] font-bold" : null
               }
-              to={"/host/income"}>
+              to={"income"}>
               Income
             </NavLink>
           </li>
@@ -29,7 +29,7 @@ function Host() {
               className={({ isActive }) =>
                 isActive ? "text-[#FF8C38] font-bold" : null
               }
-              to={"/host/vans"}>
+              to={"vans"}>
               Vans
             </NavLink>
           </li>
@@ -38,7 +38,7 @@ function Host() {
               className={({ isActive }) =>
                 isActive ? "text-[#FF8C38] font-bold" : null
               }
-              to={"/host/reviews"}>
+              to={"reviews"}>
               Reviews
             </NavLink>
           </li>

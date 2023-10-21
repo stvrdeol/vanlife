@@ -31,7 +31,7 @@ function Vans() {
       })}
     </section>
   ) : (
-    <section className="flex items-center h-full justify-center ">
+    <section className="flex-1 grid place-items-center">
       <Loader />
     </section>
   );
