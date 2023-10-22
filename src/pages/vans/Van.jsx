@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import BackToParent from "../../components/BackToParent";
 import Loader from "../../components/Loader";
+import ErrorPage from "../ErrorPage";
 function Van() {
   const param = useParams();
   const [van, setVan] = useState(null);
+  const [error, setError] = useState(null);
   const location = useLocation();
   const typeFilter = location?.state?.typeFilter || "all";
   function setTypeClass(type) {
@@ -18,12 +20,28 @@ function Van() {
   }
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`/api/vans/${param.id}`);
-      const data = await response.json();
-      setVan(data.vans);
+      try {
+        const response = await fetch(`/api/vans/${param.id}`);
+
+        if (response._bodyInit == "null") {
+          setError("There is something wrong");
+          return;
+        }
+        const data = await response.json();
+        setVan(data.vans);
+      } catch {
+        return;
+      }
     }
     fetchData();
   }, [param]);
+  if (error) {
+    return (
+      <section className="px-[5vw] flex-1 grid place-items-center">
+        <ErrorPage />
+      </section>
+    );
+  }
   return van ? (
     <>
       <section className="px-[5vw]">
@@ -33,7 +51,7 @@ function Van() {
           to={location?.state?.search ? `..?${location.state.search}` : `..`}
         />
       </section>
-      <section className=" md:flex px-[5vw] py-8 items-center gap-6 max-w-4xl mx-auto text-[#161616]">
+      <section className=" md:flex flex-1 px-[5vw] py-8 items-center gap-6 max-w-4xl mx-auto text-[#161616]">
         <img
           src={van.imageUrl}
           alt="van"
