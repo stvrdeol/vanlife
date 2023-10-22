@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import BackToParent from "../../components/BackToParent";
 import Loader from "../../components/Loader";
 function Van() {
   const param = useParams();
   const [van, setVan] = useState(null);
+  const location = useLocation();
+  const typeFilter = location?.state?.typeFilter || "all";
   function setTypeClass(type) {
     if (type == "simple") {
       return "bg-[#E17654]";
@@ -26,7 +28,10 @@ function Van() {
     <>
       <section className="px-[5vw]">
         <span>&#8678; </span>
-        <BackToParent text="Back to vans" />
+        <BackToParent
+          text={`Back to ${typeFilter} vans`}
+          to={location?.state?.search ? `..?${location.state.search}` : `..`}
+        />
       </section>
       <section className=" md:flex px-[5vw] py-8 items-center gap-6 max-w-4xl mx-auto text-[#161616]">
         <img

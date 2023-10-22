@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import About from "./pages/About";
+import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Dashboard from "./pages/host/Dashboard";
 import Host from "./pages/host/Host";
@@ -33,7 +34,7 @@ function App() {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
-          {/* <Route path="*" element={<Home />} /> */}
+          <Route path="*" element={<ErrorPage />} />
           <Route path="vans/:id" element={<Van />} />
         </Route>
       </Routes>

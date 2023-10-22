@@ -18,7 +18,7 @@ function Vans() {
       <h2 className="font-bold text-3xl mb-8">Your Listed Vans</h2>
       {hostVans.map((van) => {
         return (
-          <Link key={van.id} to={`/host/vans/${van.id}`}>
+          <Link key={van.id} to={`${van.id}`}>
             <article className="bg-white mb-4 rounded-md flex items-center gap-6 py-4 px-[3vw]">
               <img src={van.imageUrl} alt="van" className="h-20 rounded-md" />
               <section>

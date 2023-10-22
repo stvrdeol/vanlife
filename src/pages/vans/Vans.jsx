@@ -29,7 +29,9 @@ function Vans() {
   const vansElement = filteredVans.map((van) => {
     return (
       <article key={van.id}>
-        <Link to={`/vans/${van.id}`}>
+        <Link
+          to={`${van.id}`}
+          state={{ search: searchParams.toString(), typeFilter }}>
           <img src={van.imageUrl} alt="van" className="rounded-[5px]" />
           <section className="sm:text-xl font-semibold gap-3 flex justify-between mt-2">
             <h2>{van.name}</h2>
@@ -67,7 +69,7 @@ function Vans() {
           setSearchParams={setSearchParams}
           currentFilter={typeFilter}
         />
-        <FilterButtons setSearchParams={setSearchParams} />
+        {typeFilter && <FilterButtons setSearchParams={setSearchParams} />}
       </section>
       <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3">
         {vansElement}
