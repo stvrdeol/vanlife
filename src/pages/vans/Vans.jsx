@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import FilterButtons from "../../components/FilterButtons";
 import Loader from "../../components/Loader";
+
 function Vans() {
-  const [vans, setVans] = useState([]);
+  const vans = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   function setTypeClass(type) {
@@ -15,14 +15,7 @@ function Vans() {
       return "bg-[#115E59]";
     }
   }
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/api/vans");
-      const data = await response.json();
-      setVans(data.vans);
-    }
-    fetchData();
-  }, []);
+
   const filteredVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
     : vans;
@@ -71,7 +64,7 @@ function Vans() {
         />
         {typeFilter && <FilterButtons setSearchParams={setSearchParams} />}
       </section>
-      <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3">
+      <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3 gap-y-5">
         {vansElement}
       </section>
     </section>
