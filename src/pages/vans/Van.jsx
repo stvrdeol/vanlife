@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import BackToParent from "../../components/BackToParent";
 import Loader from "../../components/Loader";
 import ErrorPage from "../ErrorPage";
 function Van() {
-  const param = useParams();
-  const [van, setVan] = useState(null);
-  const [error, setError] = useState(null);
+  const van = useLoaderData();
   const location = useLocation();
   const typeFilter = location?.state?.typeFilter || "all";
   function setTypeClass(type) {
@@ -18,24 +15,8 @@ function Van() {
       return "bg-[#115E59]";
     }
   }
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(`/api/vans/${param.id}`);
 
-        if (response._bodyInit == "null") {
-          setError("There is something wrong");
-          return;
-        }
-        const data = await response.json();
-        setVan(data.vans);
-      } catch {
-        return;
-      }
-    }
-    fetchData();
-  }, [param]);
-  if (error) {
+  if (!van) {
     return (
       <section className="px-[5vw] flex-1 grid place-items-center">
         <ErrorPage />

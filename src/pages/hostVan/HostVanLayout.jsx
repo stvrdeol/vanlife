@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import BackToParent from "../../components/BackToParent";
 import Loader from "../../components/Loader";
 function Van() {
-  const [van, setVan] = useState(null);
-  const { hostVanId } = useParams();
+  const van = useLoaderData();
   function setTypeClass(type) {
     if (type == "simple") {
       return "bg-[#E17654]";
@@ -14,14 +12,7 @@ function Van() {
       return "bg-[#115E59]";
     }
   }
-  useEffect(() => {
-    async function fetchVan() {
-      const response = await fetch(`/api/host/vans/${hostVanId}`);
-      const data = await response.json();
-      setVan(data.vans);
-    }
-    fetchVan();
-  });
+
   return van ? (
     <>
       <section className="mt-4">

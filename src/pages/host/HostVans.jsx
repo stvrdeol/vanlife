@@ -1,18 +1,9 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Loader from "../../components/Loader";
 
 function Vans() {
-  const [hostVans, setHostVans] = useState(null);
+  const hostVans = useLoaderData();
 
-  useEffect(() => {
-    async function fetchHostVans() {
-      const response = await fetch("/api/host/vans");
-      const data = await response.json();
-      setHostVans(data.vans);
-    }
-    fetchHostVans();
-  }, []);
   return hostVans ? (
     <section className="mt-10 text-[#161616]">
       <h2 className="font-bold text-3xl mb-8">Your Listed Vans</h2>
