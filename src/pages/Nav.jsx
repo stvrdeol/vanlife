@@ -42,7 +42,7 @@ function Nav() {
                 isActive ? "text-[#FF8C38] font-bold" : null
               }
               to="/login">
-              <img src={Icon} alt="Login" className="w-6" />
+              <img src={Icon} alt="Login" className="min-h-fit" />
             </NavLink>
           </li>
         </ul>
