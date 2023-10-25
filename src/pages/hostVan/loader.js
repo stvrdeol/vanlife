@@ -1,4 +1,4 @@
-import { authUsers } from "../../utils/utils";
+import { authUsers } from "../../utils/authUsers";
 
 export async function hostVan({ params }) {
   authUsers();

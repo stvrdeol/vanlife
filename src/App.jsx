@@ -23,7 +23,7 @@ import Van from "./pages/vans/Van";
 import Vans from "./pages/vans/Vans";
 import { loader as vansLoader } from "./pages/vans/vansLoader";
 import "./server";
-import { authUsers } from "./utils/utils";
+import { authUsers } from "./utils/authUsers";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
