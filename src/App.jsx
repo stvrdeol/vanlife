@@ -52,7 +52,8 @@ function App() {
           <Route
             path="vans/:hostVanId"
             element={<HostVanLayout />}
-            loader={hostVan}>
+            loader={hostVan}
+            errorElement={<ErrorPage />}>
             <Route index element={<HostVanDetails />} />
             <Route
               path="photos"
@@ -67,9 +68,19 @@ function App() {
           </Route>
         </Route>
         <Route path="about" element={<About />} />
-        <Route path="vans" loader={vansLoader} element={<Vans />} />
+        <Route
+          path="vans"
+          loader={vansLoader}
+          element={<Vans />}
+          errorElement={<ErrorPage />}
+        />
         <Route path="*" element={<ErrorPage />} />
-        <Route path="vans/:id" element={<Van />} loader={van} />
+        <Route
+          path="vans/:id"
+          element={<Van />}
+          loader={van}
+          errorElement={<ErrorPage />}
+        />
         <Route path="login" element={<Login />} />
       </Route>
     )
