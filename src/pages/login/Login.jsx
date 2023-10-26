@@ -1,24 +1,18 @@
-import { Form, useSearchParams } from "react-router-dom";
+import {
+  Form,
+  useActionData,
+  useNavigation,
+  useSearchParams,
+} from "react-router-dom";
 
 function Login() {
   const [searchParams] = useSearchParams();
   const message = searchParams.get("message");
-  // const [status, setStatus] = useState("idle");
-  // const [error, setError] = useState(null);
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   setStatus("submitting");
-  //   setError(null);
-  //   try {
-  //     const data = await loginUser(formData);
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //     setError(err);
-  //   } finally {
-  //     setStatus("idle");
-  //   }
-  // }
+
+  const navigation = useNavigation();
+  const status = navigation.state;
+
+  const error = useActionData();
 
   return (
     <>
@@ -53,13 +47,13 @@ function Login() {
             placeholder="password"
             className="px-2 w-full rounded-t-none border py-2 rounded-md"
           />
-          {/* {error && (
+          {error && (
             <p className="text-red-600 font-bold mt-2">{error.message}</p>
-          )} */}
+          )}
           <button
             disabled={status == "submitting"}
-            className={`bg-[#FF8C38] w-full py-2 rounded-md text-white mt-5 font-boldshadow-sm ${
-              status == "submitting" ? `cursor-wait` : null
+            className={`bg-[#FF8C38] w-full py-2 rounded-md text-white mt-5 font-bold shadow-sm ${
+              status == "submitting" ? `cursor-wait bg-gray-600` : null
             }`}>
             {status == "submitting" ? `signing in ` : `log in`}
           </button>

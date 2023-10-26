@@ -7,7 +7,7 @@ export async function action({ request }) {
     localStorage.setItem("isLoggedIn", true);
     window.location.href = "/host";
   } catch (err) {
-    console.log(err);
+    return err;
   }
   return null;
 }
