@@ -8,7 +8,6 @@ import Layout from "./components/Layout";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
 import Dashboard from "./pages/host/Dashboard";
 import Host from "./pages/host/Host";
 import HostVans from "./pages/host/HostVans";
@@ -19,6 +18,8 @@ import HostVanLayout from "./pages/hostVan/HostVanLayout";
 import HostVanPhotos from "./pages/hostVan/Photos";
 import HostVanPricing from "./pages/hostVan/Pricing";
 import { hostVan, hostVans, van } from "./pages/hostVan/loader";
+import Login from "./pages/login/Login";
+import { action as loginAction } from "./pages/login/loginUtils";
 import Van from "./pages/vans/Van";
 import Vans from "./pages/vans/Vans";
 import { loader as vansLoader } from "./pages/vans/vansLoader";
@@ -29,25 +30,10 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route
-          path="host"
-          loader={async () => await authUsers()}
-          element={<Host />}>
-          <Route
-            index
-            loader={async () => await authUsers()}
-            element={<Dashboard />}
-          />
-          <Route
-            path="income"
-            element={<Income />}
-            loader={async () => await authUsers()}
-          />
-          <Route
-            path="reviews"
-            element={<Reviews />}
-            loader={async () => await authUsers()}
-          />
+        <Route path="host" loader={authUsers} element={<Host />}>
+          <Route index loader={authUsers} element={<Dashboard />} />
+          <Route path="income" element={<Income />} loader={authUsers} />
+          <Route path="reviews" element={<Reviews />} loader={authUsers} />
           <Route path="vans" element={<HostVans />} loader={hostVans} />
           <Route
             path="vans/:hostVanId"
@@ -58,12 +44,12 @@ function App() {
             <Route
               path="photos"
               element={<HostVanPhotos />}
-              loader={async () => await authUsers()}
+              loader={authUsers}
             />
             <Route
               path="pricing"
               element={<HostVanPricing />}
-              loader={async () => await authUsers()}
+              loader={authUsers}
             />
           </Route>
         </Route>
@@ -81,7 +67,7 @@ function App() {
           loader={van}
           errorElement={<ErrorPage />}
         />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login />} action={loginAction} />
       </Route>
     )
   );
