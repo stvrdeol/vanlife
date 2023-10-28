@@ -1,6 +1,5 @@
 import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import BackToParent from "../../components/BackToParent";
-import Loader from "../../components/Loader";
 function Van() {
   const van = useLoaderData();
   function setTypeClass(type) {
@@ -13,7 +12,7 @@ function Van() {
     }
   }
 
-  return van ? (
+  return (
     <>
       <section className="mt-4">
         <span>&#8678; </span>
@@ -73,10 +72,6 @@ function Van() {
         <Outlet context={van} />
       </section>
     </>
-  ) : (
-    <section className="flex-1 flex items-center h-full justify-center">
-      <Loader />
-    </section>
   );
 }
 

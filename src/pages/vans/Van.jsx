@@ -1,7 +1,5 @@
 import { useLoaderData, useLocation } from "react-router-dom";
 import BackToParent from "../../components/BackToParent";
-import Loader from "../../components/Loader";
-import ErrorPage from "../ErrorPage";
 function Van() {
   const van = useLoaderData();
   const location = useLocation();
@@ -16,14 +14,7 @@ function Van() {
     }
   }
 
-  if (!van) {
-    return (
-      <section className="px-[5vw] flex-1 grid place-items-center">
-        <ErrorPage />
-      </section>
-    );
-  }
-  return van ? (
+  return (
     <>
       <section className="px-[5vw]">
         <span>&#8678; </span>
@@ -57,8 +48,6 @@ function Van() {
         </section>
       </section>
     </>
-  ) : (
-    <Loader />
   );
 }
 

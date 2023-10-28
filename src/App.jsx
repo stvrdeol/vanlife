@@ -30,10 +30,25 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="host" loader={authUsers} element={<Host />}>
-          <Route index loader={authUsers} element={<Dashboard />} />
-          <Route path="income" element={<Income />} loader={authUsers} />
-          <Route path="reviews" element={<Reviews />} loader={authUsers} />
+        <Route
+          path="host"
+          loader={async (obj) => await authUsers(obj)}
+          element={<Host />}>
+          <Route
+            index
+            loader={async () => await authUsers()}
+            element={<Dashboard />}
+          />
+          <Route
+            path="income"
+            element={<Income />}
+            loader={async () => await authUsers()}
+          />
+          <Route
+            path="reviews"
+            element={<Reviews />}
+            loader={async () => await authUsers()}
+          />
           <Route path="vans" element={<HostVans />} loader={hostVans} />
           <Route
             path="vans/:hostVanId"
@@ -44,12 +59,12 @@ function App() {
             <Route
               path="photos"
               element={<HostVanPhotos />}
-              loader={authUsers}
+              loader={async () => await authUsers()}
             />
             <Route
               path="pricing"
               element={<HostVanPricing />}
-              loader={authUsers}
+              loader={async () => await authUsers()}
             />
           </Route>
         </Route>
