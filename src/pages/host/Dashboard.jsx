@@ -7,32 +7,47 @@ function Dashboard() {
   return (
     <section className="text-[#161616]">
       <article className="bg-[#FFEAD0] px-[3vw] md:px-[5vw] py-5">
-        <h2 className="font-bold text-4xl">Welcome!</h2>
-        <section>
+        <h2 className="font-bold text-4xl py-4">Welcome!</h2>
+        <section className="flex justify-between ">
           <p className="font-medium text-[#4D4D4D]">
-            Income last <span className="font-bold">30 days</span>
+            Income last
+            <span className="font-bold underline-offset-4 underline">
+              30 days
+            </span>
           </p>
-          <p className="font-medium">Details</p>
+          <Link
+            to={"income"}
+            className="font-medium hover:underline hover:font-bold underline-offset-4">
+            Details
+          </Link>
         </section>
-        <p className="font-extrabold text-5xl">$2,260</p>
+        <p className="font-extrabold text-5xl py-5">$2,260</p>
       </article>
-      <article className="bg-[#FFDDB2] px-[3vw] md:px-[5vw]">
-        <section>
-          <p className="font-bold text-2xl">Review Score</p>
-          <p className="text-xl font-medium">
+      <article className="bg-[#FFDDB2] px-[3vw] md:px-[5vw] flex justify-between items-center">
+        <section className="flex items-center gap-8">
+          <p className="font-bold text-2xl ">Review Score</p>
+          <p className="text-xl font-medium flex items-center gap-2 py-10">
             <img className="w-6" src={star} alt="star" />
             <span className="font-bold ">5.0</span>
             /5
           </p>
         </section>
-        <p className="font-medium">Details</p>
+        <Link
+          to={"reviews"}
+          className="font-medium hover:underline hover:font-bold underline-offset-4">
+          Details
+        </Link>
       </article>
-      <article className="px-[3vw] md:px-[5vw]">
-        <section>
+      <article className="px-[3vw] md:px-[5vw] pt-5">
+        <section className="flex justify-between items-center">
           <h2 className="font-bold text-2xl">Your Listed Vans</h2>
-          <p className="font-medium">View All</p>
+          <Link
+            to={"vans"}
+            className="font-medium hover:underline hover:font-bold underline-offset-4">
+            View All
+          </Link>
         </section>
-        <section className="mt-10 text-[#161616]">
+        <section className=" p-4 text-[#161616]">
           <Suspense
             fallback={
               <section className="flex-1 grid place-items-center">
