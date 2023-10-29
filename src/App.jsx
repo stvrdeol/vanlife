@@ -36,8 +36,9 @@ function App() {
           element={<Host />}>
           <Route
             index
-            loader={async () => await authUsers()}
             element={<Dashboard />}
+            loader={hostVans}
+            errorElement={<ErrorPage />}
           />
           <Route
             path="income"

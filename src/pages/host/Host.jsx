@@ -2,9 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 function Host() {
   return (
-    <section className="py-5 flex flex-col px-[3vw] md:px-[5vw] flex-1">
+    <section className="py-5 flex flex-col   flex-1">
       <nav>
-        <ul className="flex  gap-3">
+        <ul className="flex px-[3vw] md:px-[5vw] pb-8 gap-3">
           <li>
             <NavLink
               end

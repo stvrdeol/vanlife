@@ -4,7 +4,6 @@ import Loader from "../../components/Loader";
 
 function Vans() {
   const hostVans = useLoaderData();
-
   return (
     <section className="mt-10 text-[#161616]">
       <h2 className="font-bold text-3xl mb-8">Your Listed Vans</h2>

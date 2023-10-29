@@ -27,17 +27,12 @@ const db = getFirestore(app);
 export async function hostVan({ params }) {
   await authUsers();
   const id = params.hostVanId;
-  // const docRef = await doc(db, "vans", id);
-  // const docSnap = (await getDoc(docRef)).data();
-  // return docSnap;
   const q = query(collection(db, "vans"), where("hostId", "==", "123"));
   const hostVans = (await getDocs(q)).docs.map((doc) => ({
     ...doc.data(),
   }));
   const van = hostVans.filter((van) => van.id == id);
-
   return van[0];
-  // filter hostVans so that only id matches
 }
 
 export async function hostVans() {
