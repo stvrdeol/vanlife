@@ -1,4 +1,5 @@
 import { useLoaderData, useLocation } from "react-router-dom";
+import AnimationWrapper from "../../AnimationWrapper";
 import BackToParent from "../../components/BackToParent";
 function Van() {
   const van = useLoaderData();
@@ -15,7 +16,7 @@ function Van() {
   }
 
   return (
-    <>
+    <AnimationWrapper>
       <section className="px-[5vw]">
         <span>&#8678; </span>
         <BackToParent
@@ -47,7 +48,7 @@ function Van() {
           </button>
         </section>
       </section>
-    </>
+    </AnimationWrapper>
   );
 }
 

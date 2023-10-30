@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import {
   Route,
   RouterProvider,
@@ -28,7 +29,7 @@ import { authUsers } from "./utils/authUsers";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
+      <Route path="/" key={location} element={<Layout />}>
         <Route index element={<Home />} />
         <Route
           path="host"
@@ -89,7 +90,9 @@ function App() {
   );
   return (
     <>
-      <RouterProvider router={router} />
+      <AnimatePresence mode="wait">
+        <RouterProvider router={router} />
+      </AnimatePresence>
     </>
   );
 }
