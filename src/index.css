@@ -25,5 +25,7 @@ body {
 nav a:hover {
     color: #FF8C38;
     font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     transition: all .15s;
 }

@@ -9,7 +9,9 @@ function Host() {
             <NavLink
               end
               className={({ isActive }) =>
-                isActive ? "text-[#FF8C38] font-bold" : null
+                isActive
+                  ? "text-[#FF8C38] underline underline-offset-4 font-bold"
+                  : null
               }
               to={"."}>
               Dashboard
@@ -18,7 +20,9 @@ function Host() {
           <li>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-[#FF8C38] font-bold" : null
+                isActive
+                  ? "text-[#FF8C38] underline underline-offset-4 font-bold"
+                  : null
               }
               to={"income"}>
               Income
@@ -27,7 +31,9 @@ function Host() {
           <li>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-[#FF8C38] font-bold" : null
+                isActive
+                  ? "text-[#FF8C38] underline underline-offset-4 font-bold"
+                  : null
               }
               to={"vans"}>
               Vans
@@ -36,7 +42,9 @@ function Host() {
           <li>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-[#FF8C38] font-bold" : null
+                isActive
+                  ? "text-[#FF8C38] underline underline-offset-4 font-bold"
+                  : null
               }
               to={"reviews"}>
               Reviews

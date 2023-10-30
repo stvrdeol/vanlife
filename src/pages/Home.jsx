@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <section className="bg-home text-white py-14 px-8 flex-1">
@@ -9,7 +11,12 @@ function Home() {
           Add adventure to your life by joining the #vanlife movement. Rent the
           perfect van to make your perfect road trip.
         </p>
-        <button className="bg-[#FF8C38] w-full py-3">Find Your Van</button>
+
+        <Link
+          className="bg-[#FF8C38] min-w-full block text-center py-3"
+          to={"vans"}>
+          Find Your Van
+        </Link>
       </section>
     </section>
   );
