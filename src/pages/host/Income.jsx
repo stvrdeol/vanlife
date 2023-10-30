@@ -18,32 +18,36 @@ function Income() {
     },
   ];
   return (
-    <section className="px-[3vw] md:px-[5vw]">
-      <h2>Income</h2>
-      <p className="font-medium text-[#4D4D4D]">
+    <section className="px-[3vw] md:px-[5vw] font-medium">
+      <h2 className="font-bold text-4xl">Income</h2>
+      <p className="font-medium text-[#4D4D4D] py-7">
         Income last
         <span className="font-bold underline-offset-4 underline">30 days</span>
       </p>
-      <p className="font-extrabold text-5xl py-5">$2,260</p>
+      <p className="font-extrabold text-5xl pb-9">$2,260</p>
       <img src={chart} alt="chart" />
 
-      <section>
-        <p>Your transactions ({income.length})</p>
-        <p className="font-medium text-[#4D4D4D]">
+      <section className="flex my-10 justify-between items-center">
+        <p className="font-bold text-2xl">
+          Your transactions ({income.length})
+        </p>
+        <p className=" text-[#4D4D4D]">
           Income last
           <span className="font-bold underline-offset-4 underline">
             30 days
           </span>
         </p>
-        {income.map((income) => {
-          return (
-            <article key={income.id}>
-              <p>${income.amount}</p>
-              <p>{income.date}</p>
-            </article>
-          );
-        })}
       </section>
+      {income.map((income) => {
+        return (
+          <article
+            key={income.id}
+            className="flex items-center justify-between bg-white my-5 p-7 rounded-md">
+            <p className="font-semibold text-4xl">${income.amount}</p>
+            <p className="text-xl">{income.date}</p>
+          </article>
+        );
+      })}
     </section>
   );
 }

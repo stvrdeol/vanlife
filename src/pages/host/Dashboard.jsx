@@ -58,7 +58,7 @@ function Dashboard() {
               {(loadedVans) => {
                 return loadedVans.map((van) => {
                   return (
-                    <Link key={van.id} to={`${van.id}`}>
+                    <Link key={van.id} to={`vans/${van.id}`}>
                       <article className="bg-white mb-4 rounded-md flex items-center gap-6 py-4 px-[3vw] justify-between">
                         <section className="flex gap-6 items-center">
                           <img
