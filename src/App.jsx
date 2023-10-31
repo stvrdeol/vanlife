@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
+import RentVan from "./pages/RentVan";
 import Dashboard from "./pages/host/Dashboard";
 import Host from "./pages/host/Host";
 import HostVans from "./pages/host/HostVans";
@@ -81,6 +82,12 @@ function App() {
         <Route
           path="vans/:id"
           element={<Van />}
+          loader={van}
+          errorElement={<ErrorPage />}
+        />
+        <Route
+          path="vans/:id/rent"
+          element={<RentVan />}
           loader={van}
           errorElement={<ErrorPage />}
         />

@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import AnimationWrapper from "../../AnimationWrapper";
 import BackToParent from "../../components/BackToParent";
 function Van() {
@@ -43,9 +43,11 @@ function Van() {
             <span className="font-bold text-2xl">${van.price}</span>/day
           </p>
           <p className="font-medium mt-3">{van.description}</p>
-          <button className="bg-[#FF8C38] font-bold text-lg text-white w-full mt-6 rounded-[5px] py-1.5">
+          <Link
+            to={`/vans/${van.id}/rent`}
+            className="bg-[#FF8C38] block text-center font-bold text-lg text-white w-full mt-6 rounded-[5px] py-1.5">
             Rent this van
-          </button>
+          </Link>
         </section>
       </section>
     </AnimationWrapper>
