@@ -48,7 +48,9 @@ function Van() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-[#FF8C38] font-bold" : null
+                    isActive
+                      ? "text-[#FF8C38] font-bold underline underline-offset-4"
+                      : null
                   }
                   end
                   to={`.`}>
@@ -58,7 +60,9 @@ function Van() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-[#FF8C38] font-bold" : null
+                    isActive
+                      ? "text-[#FF8C38] font-bold underline underline-offset-4"
+                      : null
                   }
                   to={`pricing`}>
                   Pricing
@@ -67,7 +71,9 @@ function Van() {
               <li>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-[#FF8C38] font-bold" : null
+                    isActive
+                      ? "text-[#FF8C38] font-bold underline underline-offset-4"
+                      : null
                   }
                   to={`photos`}>
                   Photos

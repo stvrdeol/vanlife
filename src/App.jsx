@@ -25,7 +25,7 @@ import { action as loginAction } from "./pages/login/loginUtils";
 import Van from "./pages/vans/Van";
 import Vans from "./pages/vans/Vans";
 import { loader as vansLoader } from "./pages/vans/vansLoader";
-import "./server";
+
 import { authUsers } from "./utils/authUsers";
 function App() {
   const router = createBrowserRouter(
