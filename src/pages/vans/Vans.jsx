@@ -78,7 +78,7 @@ function Vans() {
                       <FilterButtons setSearchParams={setSearchParams} />
                     )}
                   </section>
-                  <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3 gap-y-5">
+                  <section className="grid grid-cols-2 mt-10 gap-2 sm:gap-8 sm:grid-cols-3 gap-y-5 pb-10">
                     {vansElement}
                   </section>
                 </>

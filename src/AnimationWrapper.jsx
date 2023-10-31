@@ -1,22 +1,35 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const animation = {
-  initial: { scale: 0.5, opacity: 0 },
-  animate: { scale: 1, opacity: 1 },
-  exit: { scale: 0.5, opacity: 0 },
-  transition: { duration: 1, ease: "easeInOut" },
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: { duration: 0.4, ease: "easeInOut" },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.4, ease: "easeInOut" },
+  },
 };
 
 export default function AnimationWrapper({ children }) {
+  const location = useLocation();
   return (
-    <motion.div
-      className="flex-1"
-      variants={animation}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition="transition">
-      {children}
-    </motion.div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        className="flex-1 grid place-items-center"
+        variants={animation}
+        id="animation-wrapper"
+        key={location}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition="transition">
+        {children}
+      </motion.div>
+    </AnimatePresence>
   );
 }

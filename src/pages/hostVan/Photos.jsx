@@ -4,7 +4,7 @@ function Photos() {
   const van = useOutletContext();
   return (
     <AnimationWrapper>
-      <section>
+      <section >
         <img src={van.imageUrl} alt={van.name} className="w-20 rounded-md" />
       </section>
     </AnimationWrapper>

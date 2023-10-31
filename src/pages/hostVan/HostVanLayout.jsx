@@ -15,7 +15,7 @@ function Van() {
 
   return (
     <AnimationWrapper>
-      <section className="px-[3vw] md:px-[5vw]">
+      <section className="px-[3vw]  md:px-[5vw]">
         <section className="mt-4">
           <span>&#8678; </span>
           <BackToParent text="Back to vans" to="/host/vans" />

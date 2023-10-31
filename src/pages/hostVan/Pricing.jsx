@@ -6,7 +6,7 @@ function Pricing() {
   return (
     <AnimationWrapper>
       <section>
-        <p className="font-medium text-xl text-gray-600">
+        <p className=" font-medium text-xl text-gray-600">
           <span className="font-bold text-2xl text-[#161616]">
             ${van.price}
           </span>
