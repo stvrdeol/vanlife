@@ -6,15 +6,15 @@ export async function action({ request }) {
   const email = formData.get("email");
   const password = formData.get("password");
   try {
-    await loginUser({ email, password });
-    localStorage.setItem("isLoggedIn", true);
+    const user = await loginUser({ email, password });
     window.location.href = "/host";
+    localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("currentUser", JSON.stringify(user));
   } catch (err) {
     return err;
   }
   return null;
 }
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLYKaXD_QMtI-nCu8J21PhAeG0tc3MKSQ",

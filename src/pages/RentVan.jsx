@@ -3,9 +3,11 @@ import { Link, useLoaderData } from "react-router-dom";
 import AnimationWrapper from "../AnimationWrapper";
 import VanImg from "../assets/van.png";
 import BackToParent from "../components/BackToParent";
+import Loader from "../components/Loader";
 function RentVan() {
   const van = useLoaderData();
   const [confirmed, setConfirmed] = useState(false);
+  const [loading, setLoading] = useState(false);
   function setTypeClass(type) {
     if (type == "simple") {
       return "bg-[#E17654]";
@@ -15,8 +17,12 @@ function RentVan() {
       return "bg-[#115E59]";
     }
   }
-  function onCancel() {
-    window.location.href = "/vans";
+  function onConfirm() {
+    setLoading(true);
+    setTimeout(() => {
+      setConfirmed(true);
+      setLoading(false);
+    }, 2000);
   }
   return (
     <AnimationWrapper>
@@ -50,15 +56,15 @@ function RentVan() {
                 </p>
                 <p className="font-medium mt-3">{van.description}</p>
                 <section className="flex mt-4 justify-between items-center gap-4">
-                  <button
-                    className="bg-white text-red-600 border-red-600 border rounded-md py-1 w-full hover:bg-red-600 hover:text-white transition-all "
-                    onClick={onCancel}>
+                  <Link
+                    className="bg-white text-red-600 border-red-600 border rounded-md py-1 w-full hover:bg-red-600 text-center hover:text-white transition-all "
+                    to="/vans">
                     Cancel
-                  </button>
+                  </Link>
                   <button
                     className=" border-[#FF8C38] border rounded-md py-1 w-full  bg-[#FF8C38] hover:scale-105 text-white transition-all "
-                    onClick={() => setConfirmed(true)}>
-                    Confirm
+                    onClick={onConfirm}>
+                    {loading ? <Loader /> : "Confirm"}
                   </button>
                 </section>
               </section>

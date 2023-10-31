@@ -4,7 +4,7 @@ function Loader() {
       <div role="status">
         <svg
           aria-hidden="true"
-          className="w-16 h-16 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-[#FF8C38]"
+          className="w-7 h-7 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-[#FF8C38]"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
