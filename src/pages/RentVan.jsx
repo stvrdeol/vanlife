@@ -20,7 +20,7 @@ function RentVan() {
   }
   return (
     <AnimationWrapper>
-      <section className="md:px-[5vw] px-[3vw] py-10">
+      <section className="md:px-[5vw] px-[3vw] pt-5 pb-10">
         {!confirmed && (
           <>
             <section className="py-3">
@@ -68,7 +68,7 @@ function RentVan() {
 
         {confirmed && (
           <AnimationWrapper>
-            <section className="md:px-[5vw] text-center px-[3vw] pb-10">
+            <section className="md:px-[5vw] text-center px-[3vw]">
               <p className="text-3xl font-bold ">
                 Your van will be shortly delivered to your address and you will
                 be notified by email
